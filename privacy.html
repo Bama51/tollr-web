@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Tollr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #f4efe6; --surface: #ffffff; --ink: #1a1612;
+      --ink2: #4a4035; --ink3: #8a7e72; --accent: #c8641a;
+      --radius: 14px;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px; background: var(--cream); border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav-logo { font-size: 22px; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -0.5px; }
+    .nav-back { font-size: 14px; color: var(--ink3); text-decoration: none; font-weight: 500; }
+    .nav-back:hover { color: var(--accent); }
+    .container { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; }
+    .page-label {
+      display: inline-block; background: #f5e6d8; color: var(--accent);
+      font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px;
+      letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 16px;
+    }
+    h1 { font-size: 36px; font-weight: 700; letter-spacing: -1px; margin-bottom: 8px; }
+    .meta { font-size: 14px; color: var(--ink3); margin-bottom: 48px; }
+    h2 { font-size: 18px; font-weight: 600; margin: 36px 0 10px; }
+    p { font-size: 15px; color: var(--ink2); margin-bottom: 14px; line-height: 1.75; }
+    ul { padding-left: 20px; margin-bottom: 14px; }
+    ul li { font-size: 15px; color: var(--ink2); margin-bottom: 6px; line-height: 1.7; }
+    a { color: var(--accent); }
+    footer {
+      border-top: 1px solid rgba(0,0,0,0.08); padding: 28px 40px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    footer p { font-size: 13px; color: var(--ink3); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 13px; color: var(--ink3); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent); }
+    @media (max-width: 600px) { nav { padding: 16px 20px; } footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/">Tollr</a>
+    <a class="nav-back" href="/">← Back</a>
+  </nav>
+
+  <div class="container">
+    <span class="page-label">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: May 28, 2026</p>
+
+    <p>Tollr ("the app") is operated by Christopher Wright ("I", "me", or "my"). This Privacy Policy explains what information the app collects, how it is used, and your choices regarding that information.</p>
+
+    <h2>Information We Collect</h2>
+
+    <h2>1. Location Data</h2>
+    <p>Tollr requests access to your device's location while the app is in use. Your location is used solely to:</p>
+    <ul>
+      <li>Set your starting point when calculating toll costs and comparing route options</li>
+      <li>Identify which toll facilities are near your current position</li>
+      <li>Calculate drive time and toll prices for nearby express lanes</li>
+    </ul>
+    <p>For example, if you are near the I-85 Express Lanes in Atlanta, Tollr uses your location to show the current toll price and compare travel time on the express lane versus the free parallel route.</p>
+    <p>Your location is sent to Google's Routes API to calculate route options. It is never stored on our servers, shared with third parties for advertising purposes, or used to track your movements over time.</p>
+
+    <h2>2. Usage Data</h2>
+    <p>Tollr uses <strong>Sentry</strong> (sentry.io) to capture anonymous crash reports and error logs. This data helps identify and fix bugs. Sentry may collect:</p>
+    <ul>
+      <li>Device type and operating system version</li>
+      <li>App version and build number</li>
+      <li>Anonymous session identifiers</li>
+      <li>Stack traces from app crashes (no personal data is included)</li>
+    </ul>
+    <p>No personally identifiable information is included in crash reports. Sentry's privacy policy is available at <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a>.</p>
+
+    <h2>3. Purchase Information</h2>
+    <p>If you purchase Tollr Pro or a Day Pass, the transaction is processed by Apple through the App Store. Tollr uses <strong>RevenueCat</strong> to manage subscription status. RevenueCat may store an anonymous App Store user ID to track whether your subscription is active. No payment card information is ever accessed or stored by Tollr or RevenueCat.</p>
+    <p>RevenueCat's privacy policy is available at <a href="https://www.revenuecat.com/privacy" target="_blank">revenuecat.com/privacy</a>.</p>
+
+    <h2>4. Toll Price Data</h2>
+    <p>Route polylines (encoded route paths without personally identifiable information) are sent to <strong>TollTally</strong> (by TollGuru) to retrieve real-time toll prices. These requests do not include your name, email, or any account information.</p>
+    <p>TollGuru's privacy policy is available at <a href="https://tollguru.com/privacy-policy" target="_blank">tollguru.com/privacy-policy</a>.</p>
+
+    <h2>Data We Do Not Collect</h2>
+    <p>Tollr does not collect or store:</p>
+    <ul>
+      <li>Your name, email address, or any account credentials</li>
+      <li>Your travel history or route history on our servers</li>
+      <li>Payment card or financial information</li>
+      <li>Contacts, photos, or any other device data</li>
+    </ul>
+    <p>All trip history is stored locally on your device only and is never transmitted to Tollr's servers.</p>
+
+    <h2>Third-Party Services</h2>
+    <p>Tollr uses the following third-party services, each governed by their own privacy policies:</p>
+    <ul>
+      <li><strong>Google Routes API</strong> — route and toll estimation (<a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
+      <li><strong>TollTally by TollGuru</strong> — real-time toll pricing</li>
+      <li><strong>RevenueCat</strong> — subscription management</li>
+      <li><strong>Sentry</strong> — crash reporting</li>
+    </ul>
+
+    <h2>Children's Privacy</h2>
+    <p>Tollr is not directed at children under the age of 13. I do not knowingly collect personal information from children under 13.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>I may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. Continued use of the app after changes are posted constitutes acceptance of the updated policy.</p>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this Privacy Policy, please contact me at <a href="mailto:support@tollr.app">support@tollr.app</a>.</p>
+  </div>
+
+  <footer>
+    <p>© 2026 Christopher Wright. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/support.html">Support</a>
+    </div>
+  </footer>
+
+</body>
+</html>

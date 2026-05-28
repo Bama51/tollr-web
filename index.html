@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tollr — Know Before You Go</title>
+  <meta name="description" content="Tollr shows live express lane toll prices and compares them to the free route so you can decide if the time savings are worth it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #f4efe6;
+      --surface: #ffffff;
+      --ink:     #1a1612;
+      --ink2:    #4a4035;
+      --ink3:    #8a7e72;
+      --accent:  #c8641a;
+      --accent-soft: #f5e6d8;
+      --radius:  14px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink2);
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .btn-app-store {
+      background: var(--ink);
+      color: #fff !important;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+    }
+    .btn-app-store:hover { background: var(--accent) !important; color: #fff !important; }
+
+    /* HERO */
+    .hero {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p {
+      font-size: 18px;
+      color: var(--ink2);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 28px;
+      border-radius: var(--radius);
+      font-size: 16px;
+      font-weight: 600;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .hero-cta:hover { background: var(--accent); transform: translateY(-1px); }
+    .hero-cta svg { width: 20px; height: 20px; fill: currentColor; }
+    .hero-sub {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--ink3);
+    }
+
+    /* FEATURES */
+    .features {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: var(--ink2);
+      line-height: 1.6;
+    }
+
+    /* HOW IT WORKS */
+    .how {
+      background: var(--surface);
+      padding: 70px 24px;
+      text-align: center;
+    }
+    .how h2 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 48px;
+    }
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      max-width: 840px;
+      margin: 0 auto;
+    }
+    .step {
+      flex: 1;
+      min-width: 200px;
+      max-width: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step h4 { font-size: 15px; font-weight: 600; }
+    .step p { font-size: 14px; color: var(--ink2); text-align: center; }
+
+    /* CTA BANNER */
+    .cta-banner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 70px 24px;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+    .cta-banner p {
+      font-size: 16px;
+      color: var(--ink2);
+      margin-bottom: 32px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 28px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer p { font-size: 13px; color: var(--ink3); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--ink3);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 16px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/">Tollr</a>
+    <div class="nav-links">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://apps.apple.com/us/app/tollr/id6769605824" class="btn-app-store">Download</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <span class="hero-eyebrow">Available on the App Store</span>
+    <h1>Is the express lane<br/><span>worth it today?</span></h1>
+    <p>Tollr shows live toll prices for express lanes near you and compares them to the free route — so you can decide in seconds.</p>
+    <a class="hero-cta" href="https://apps.apple.com/us/app/tollr/id6769605824">
+      <svg viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.5 135.4-317.3 269-317.3 70.1 0 128.4 46.4 172.5 46.4 42.8 0 109.6-49 192.5-49 30.9 0 108.2 2.6 168.1 75.2zm-107.4-157.2c31.6-37.9 54.2-90.4 54.2-142.9 0-7.1-.6-14.3-1.9-20.1-51.5 2-112.7 34.5-149.5 78.4-28.9 32.9-56.4 85.4-56.4 138.6 0 8.4 1.3 16.8 1.9 19.4 3.2.6 8.4 1.3 13.6 1.3 46.5 0 103.1-31 138.1-74.7z"/></svg>
+      Download on the App Store
+    </a>
+    <p class="hero-sub">Free to try · iOS 16+ · No account required</p>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">
+      <span class="feature-icon">⚡</span>
+      <h3>Live Toll Prices</h3>
+      <p>See real-time express lane prices the moment you open the app — no refreshing needed.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⚖️</span>
+      <h3>Side-by-Side Comparison</h3>
+      <p>Compare travel time and cost for the toll route vs. the free parallel route, instantly.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🧠</span>
+      <h3>Worth It Score</h3>
+      <p>Tollr calculates whether the time saved on the express lane is worth the toll based on your own hourly rate.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📍</span>
+      <h3>Location-Aware</h3>
+      <p>Uses your current location as the starting point so you always get prices for the right facility near you.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📈</span>
+      <h3>Price History</h3>
+      <p>Track how express lane prices change throughout the day so you can time your commute smarter.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔔</span>
+      <h3>Price Alerts</h3>
+      <p>Get notified when toll prices drop below your target so you never miss a deal on the express lane.</p>
+    </div>
+  </section>
+
+  <section class="how">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Search your destination</h4>
+        <p>Enter where you're headed and Tollr finds toll routes from your current location.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Compare your options</h4>
+        <p>See the live toll price, time saved, and whether the express lane is worth it right now.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Head out confidently</h4>
+        <p>Choose your route knowing exactly what you'll pay and how long it will take.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <h2>Stop guessing at the on-ramp.</h2>
+    <p>Tollr gives you the information you need before you merge — not after.</p>
+    <a class="hero-cta" href="https://apps.apple.com/us/app/tollr/id6769605824">
+      <svg viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.5 135.4-317.3 269-317.3 70.1 0 128.4 46.4 172.5 46.4 42.8 0 109.6-49 192.5-49 30.9 0 108.2 2.6 168.1 75.2zm-107.4-157.2c31.6-37.9 54.2-90.4 54.2-142.9 0-7.1-.6-14.3-1.9-20.1-51.5 2-112.7 34.5-149.5 78.4-28.9 32.9-56.4 85.4-56.4 138.6 0 8.4 1.3 16.8 1.9 19.4 3.2.6 8.4 1.3 13.6 1.3 46.5 0 103.1-31 138.1-74.7z"/></svg>
+      Download on the App Store
+    </a>
+  </section>
+
+  <footer>
+    <p>© 2026 Christopher Wright. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/support.html">Support</a>
+    </div>
+  </footer>
+
+</body>
+</html>
