@@ -42,11 +42,19 @@
       border-bottom: 1px solid rgba(0,0,0,0.06);
     }
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 22px;
       font-weight: 700;
       color: var(--ink);
       text-decoration: none;
       letter-spacing: -0.5px;
+    }
+    .nav-logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
     }
     .nav-links { display: flex; gap: 28px; align-items: center; }
     .nav-links a {
@@ -73,6 +81,14 @@
       margin: 0 auto;
       padding: 80px 24px 60px;
       text-align: center;
+    }
+    .hero-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      margin: 0 auto 28px;
+      display: block;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
     }
     .hero-eyebrow {
       display: inline-block;
@@ -246,7 +262,7 @@
 <body>
 
   <nav>
-    <a class="nav-logo" href="/">Tollr</a>
+    <a class="nav-logo" href="/"><img src="/icon.png" alt="Tollr icon" />Tollr</a>
     <div class="nav-links">
       <a href="/support.html">Support</a>
       <a href="/privacy.html">Privacy</a>
@@ -255,6 +271,7 @@
   </nav>
 
   <section class="hero">
+    <img class="hero-icon" src="/icon.png" alt="Tollr app icon" />
     <span class="hero-eyebrow">Available on the App Store</span>
     <h1>Is the express lane<br/><span>worth it today?</span></h1>
     <p>Tollr shows live toll prices for express lanes near you and compares them to the free route — so you can decide in seconds.</p>
